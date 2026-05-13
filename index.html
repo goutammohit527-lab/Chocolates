@@ -1,26 +1,505 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>For My Chocolate Girl 🍫</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chocolate Universe 🍫❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    overflow:hidden;
+    height:100vh;
+    background:
+    linear-gradient(135deg,#140b08,#2b120d,#4e342e);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+}
+
+/* Animated Background */
+
+.bg-circle{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:0.4;
+    animation:move 8s infinite alternate ease-in-out;
+}
+
+.bg1{
+    width:350px;
+    height:350px;
+    background:#ff4081;
+    top:-100px;
+    left:-100px;
+}
+
+.bg2{
+    width:300px;
+    height:300px;
+    background:#ffb74d;
+    bottom:-80px;
+    right:-80px;
+}
+
+@keyframes move{
+    from{
+        transform:translate(0,0);
+    }
+
+    to{
+        transform:translate(40px,40px);
+    }
+}
+
+/* Floating Chocolates */
+
+.choco{
+    position:absolute;
+    top:-50px;
+    animation:fall linear infinite;
+    user-select:none;
+}
+
+@keyframes fall{
+
+    0%{
+        transform:
+        translateY(-100px)
+        rotate(0deg);
+    }
+
+    100%{
+        transform:
+        translateY(120vh)
+        rotate(360deg);
+    }
+}
+
+/* Main Card */
+
+.container{
+
+    width:90%;
+    max-width:850px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border:
+    1px solid rgba(255,255,255,0.1);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:35px;
+
+    padding:50px;
+
+    text-align:center;
+
+    position:relative;
+
+    z-index:10;
+
+    box-shadow:
+    0 0 50px rgba(255,105,180,0.2);
+}
+
+/* Heading */
+
+h1{
+
+    font-size:4rem;
+
+    color:#fff3e0;
+
+    margin-bottom:20px;
+
+    text-shadow:
+    0 0 20px rgba(255,183,77,0.8);
+
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+/* Text */
+
+.text{
+
+    color:#ffe0b2;
+
+    font-size:1.2rem;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+}
+
+/* Buttons */
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+button{
+
+    padding:16px 35px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.4s;
+}
+
+/* Chocolate Button */
+
+.chocoBtn{
+
+    background:
+    linear-gradient(45deg,#ff4081,#ffb74d);
+
+    color:white;
+
+    box-shadow:
+    0 0 25px rgba(255,64,129,0.5);
+}
+
+.chocoBtn:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.05);
+
+    box-shadow:
+    0 0 40px rgba(255,64,129,0.8);
+}
+
+/* Love Button */
+
+.loveBtn{
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border:
+    1px solid rgba(255,255,255,0.1);
+
+    color:white;
+}
+
+.loveBtn:hover{
+
+    transform:scale(1.05);
+
+    background:
+    rgba(255,255,255,0.15);
+}
+
+/* Counter */
+
+.counter{
+
+    margin-top:35px;
+
+    font-size:2rem;
+
+    color:#fff8e1;
+
+    text-shadow:
+    0 0 20px rgba(255,255,255,0.5);
+}
+
+/* Message */
+
+.message{
+
+    margin-top:25px;
+
+    min-height:40px;
+
+    color:#ffd180;
+
+    font-size:1.1rem;
+}
+
+/* Hearts */
+
+.heart{
+
+    position:absolute;
+
+    animation:fly 4s linear forwards;
+
+    pointer-events:none;
+}
+
+@keyframes fly{
+
+    0%{
+        opacity:1;
+        transform:
+        translateY(0)
+        scale(1);
+    }
+
+    100%{
+        opacity:0;
+        transform:
+        translateY(-250px)
+        scale(2);
+    }
+}
+
+/* Footer */
+
+.footer{
+
+    margin-top:40px;
+
+    color:
+    rgba(255,255,255,0.5);
+
+    font-size:0.9rem;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    h1{
+        font-size:2.6rem;
+    }
+
+    .container{
+        padding:30px;
+    }
+
+    .counter{
+        font-size:1.5rem;
+    }
+}
+
+</style>
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>For My Chocolate Girl 🍫❤️</h1>
+<div class="bg-circle bg1"></div>
+<div class="bg-circle bg2"></div>
 
-    <p>
-      You always said I never give you chocolates...
-      so I made a whole chocolate website for you 😌
+<!-- Floating Chocolates -->
+
+<script>
+
+for(let i=0;i<45;i++){
+
+    let chocolate=document.createElement("div");
+
+    chocolate.classList.add("choco");
+
+    chocolate.innerHTML="🍫";
+
+    chocolate.style.left=
+    Math.random()*100+"vw";
+
+    chocolate.style.fontSize=
+    (20+Math.random()*35)+"px";
+
+    chocolate.style.animationDuration=
+    (6+Math.random()*10)+"s";
+
+    chocolate.style.opacity=Math.random();
+
+    document.body.appendChild(chocolate);
+}
+
+</script>
+
+<!-- Main Content -->
+
+<div class="container">
+
+    <h1>Chocolate Universe 🍫❤️</h1>
+
+    <p class="text">
+        You always said I never give you chocolates... <br>
+        So I created an entire chocolate universe only for you 😌✨
     </p>
 
-    <button onclick="giveChocolate()">
-      Give Chocolate 🍫
-    </button>
+    <div class="buttons">
 
-    <h2 id="count">0 Chocolates Given</h2>
-  </div>
+        <button class="chocoBtn"
+        onclick="giveChocolate()">
+            Give Chocolate 🍫
+        </button>
 
-  <script src="script.js"></script>
+        <button class="loveBtn"
+        onclick="showLove()">
+            Press For Love ❤️
+        </button>
+
+    </div>
+
+    <div class="counter"
+    id="counter">
+        0 Chocolates Delivered 🍫
+    </div>
+
+    <div class="message"
+    id="message"></div>
+
+    <div class="footer">
+        Unlimited chocolates. Unlimited love ❤️
+    </div>
+
+</div>
+
+<script>
+
+let count=0;
+
+const texts=[
+
+"Chocolate delivered successfully 🍫",
+"Extra love added ❤️",
+"More chocolates for the cutest girl 😌",
+"Emergency chocolate shipment sent 🚀",
+"Unlimited chocolate mode activated ✨",
+"Virtual hug + chocolate combo ❤️🍫",
+"You deserve every chocolate in the world 🌍"
+
+];
+
+/* Chocolate Function */
+
+function giveChocolate(){
+
+    count++;
+
+    document.getElementById("counter")
+    .innerHTML=
+    count+" Chocolates Delivered 🍫";
+
+    document.getElementById("message")
+    .innerHTML=
+    texts[Math.floor(Math.random()*texts.length)];
+
+    makeHearts(10);
+}
+
+/* Love Function */
+
+function showLove(){
+
+    document.getElementById("message")
+    .innerHTML=
+    "REAL CHOCOLATES COMING SOON 😌❤️";
+
+    makeHearts(25);
+}
+
+/* Floating Hearts */
+
+function makeHearts(num){
+
+    for(let i=0;i<num;i++){
+
+        let heart=document.createElement("div");
+
+        heart.classList.add("heart");
+
+        heart.innerHTML="❤️";
+
+        heart.style.left=
+        Math.random()*100+"vw";
+
+        heart.style.top=
+        (70+Math.random()*20)+"vh";
+
+        heart.style.fontSize=
+        (18+Math.random()*25)+"px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },4000);
+    }
+}
+
+/* Mouse Spark Effect */
+
+document.addEventListener("mousemove",(e)=>{
+
+    let spark=document.createElement("div");
+
+    spark.style.position="absolute";
+
+    spark.style.left=e.pageX+"px";
+
+    spark.style.top=e.pageY+"px";
+
+    spark.style.width="8px";
+
+    spark.style.height="8px";
+
+    spark.style.borderRadius="50%";
+
+    spark.style.background=
+    "rgba(255,255,255,0.8)";
+
+    spark.style.pointerEvents="none";
+
+    spark.style.filter="blur(4px)";
+
+    spark.style.zIndex="999";
+
+    document.body.appendChild(spark);
+
+    setTimeout(()=>{
+        spark.remove();
+    },300);
+});
+
+</script>
+
 </body>
 </html>
