@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,13 +31,13 @@ body{
     position:relative;
 }
 
-/* Animated Background */
+/* Background Glow */
 
 .bg-circle{
     position:absolute;
     border-radius:50%;
-    filter:blur(90px);
-    opacity:0.4;
+    filter:blur(100px);
+    opacity:0.5;
     animation:move 8s infinite alternate ease-in-out;
 }
 
@@ -52,11 +53,12 @@ body{
     width:300px;
     height:300px;
     background:#ffb74d;
-    bottom:-80px;
-    right:-80px;
+    bottom:-100px;
+    right:-100px;
 }
 
 @keyframes move{
+
     from{
         transform:translate(0,0);
     }
@@ -90,7 +92,7 @@ body{
     }
 }
 
-/* Main Card */
+/* Main Glass Card */
 
 .container{
 
@@ -116,7 +118,7 @@ body{
     z-index:10;
 
     box-shadow:
-    0 0 50px rgba(255,105,180,0.2);
+    0 0 50px rgba(255,105,180,0.25);
 }
 
 /* Heading */
@@ -209,7 +211,7 @@ button{
     scale(1.05);
 
     box-shadow:
-    0 0 40px rgba(255,64,129,0.8);
+    0 0 45px rgba(255,64,129,0.8);
 }
 
 /* Love Button */
@@ -408,24 +410,78 @@ const texts=[
 
 ];
 
-/* Chocolate Function */
+/* GIVE CHOCOLATE */
 
 function giveChocolate(){
 
     count++;
 
     document.getElementById("counter")
-    .innerHTML=
-    count+" Chocolates Delivered 🍫";
+    .innerHTML =
+    count + " Chocolates Delivered 🍫";
 
     document.getElementById("message")
-    .innerHTML=
+    .innerHTML =
     texts[Math.floor(Math.random()*texts.length)];
 
     makeHearts(10);
+
+    /* BIG POPUP CHOCOLATE */
+
+    let bigChocolate =
+    document.createElement("div");
+
+    bigChocolate.innerHTML = "🍫";
+
+    bigChocolate.style.position = "fixed";
+
+    bigChocolate.style.left = "50%";
+
+    bigChocolate.style.top = "50%";
+
+    bigChocolate.style.transform =
+    "translate(-50%,-50%) scale(0)";
+
+    bigChocolate.style.fontSize = "180px";
+
+    bigChocolate.style.zIndex = "9999";
+
+    bigChocolate.style.transition =
+    "0.6s ease";
+
+    bigChocolate.style.filter =
+    "drop-shadow(0 0 35px rgba(255,255,255,0.8))";
+
+    document.body.appendChild(bigChocolate);
+
+    /* POP ANIMATION */
+
+    setTimeout(()=>{
+
+        bigChocolate.style.transform =
+        "translate(-50%,-50%) scale(1.2)";
+
+    },100);
+
+    /* REMOVE */
+
+    setTimeout(()=>{
+
+        bigChocolate.style.transform =
+        "translate(-50%,-50%) scale(0)";
+
+        bigChocolate.style.opacity="0";
+
+    },1500);
+
+    setTimeout(()=>{
+
+        bigChocolate.remove();
+
+    },2200);
 }
 
-/* Love Function */
+/* LOVE BUTTON */
 
 function showLove(){
 
@@ -436,7 +492,7 @@ function showLove(){
     makeHearts(25);
 }
 
-/* Floating Hearts */
+/* HEART EFFECT */
 
 function makeHearts(num){
 
@@ -465,7 +521,7 @@ function makeHearts(num){
     }
 }
 
-/* Mouse Spark Effect */
+/* Mouse Spark */
 
 document.addEventListener("mousemove",(e)=>{
 
